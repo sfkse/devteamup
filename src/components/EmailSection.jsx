@@ -1,14 +1,42 @@
-import { forwardRef } from "react";
+import { useFormspark } from "@formspark/use-formspark";
+import { forwardRef, useRef, useState } from "react";
 import styled from "styled-components";
+import validator from "validator";
 
 const EmailSection = forwardRef(function EmailSection(props, ref) {
+  const inputRef = useRef();
+  const [submit, submitting] = useFormspark({
+    formId: "0BkhzMViq",
+  });
+  const [thankYouMessage, setThankYouMessage] = useState(null);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const email = inputRef.current.value;
+    if (!validator.isEmail(email)) {
+      alert("Please enter a valid email address");
+      return;
+    }
+    await submit({ email });
+    inputRef.current.value = "";
+    setThankYouMessage("Thank you for joining the waitlist!");
+  };
+
   return (
     <EmailWrapper ref={ref}>
       <EmailTitle>Join the waitlist now</EmailTitle>
-      <EmailInput>
-        <input type="email" placeholder="Enter your email" />
-        <JoinButton>Join Now</JoinButton>
-      </EmailInput>
+      <form onSubmit={handleSubmit}>
+        {thankYouMessage ? (
+          <ThankYouMessage>{thankYouMessage}</ThankYouMessage>
+        ) : (
+          <EmailInput>
+            <input ref={inputRef} type="email" placeholder="Enter your email" />
+            <JoinButton type="submit" disabled={submitting}>
+              Join Now
+            </JoinButton>
+          </EmailInput>
+        )}
+      </form>
     </EmailWrapper>
   );
 });
@@ -25,6 +53,17 @@ const EmailTitle = styled.h2`
   font-weight: bold;
   text-align: center;
   margin-bottom: 2rem;
+`;
+
+const ThankYouMessage = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #f16063;
+  z-index: 1;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
 `;
 
 const EmailInput = styled.div`
