@@ -31,30 +31,34 @@ function Navbar() {
           <path
             d="M3 12H21"
             stroke="#6675F7"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
           <path
             d="M3 6H21"
             stroke="#6675F7"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
           <path
             d="M3 18H21"
             stroke="#6675F7"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
         </svg>
       </Hamburger>
       {isOpen && (
         <MobileMenu>
-          <MobileMenuLink to="/waitlist">Pricing</MobileMenuLink>
-          <ButtonLink to="/waitlist">Sign up</ButtonLink>
+          <MobileMenuLink onClick={() => setIsOpen(false)} to="/waitlist">
+            Pricing
+          </MobileMenuLink>
+          <ButtonLink onClick={() => setIsOpen(false)} to="/waitlist">
+            Sign up
+          </ButtonLink>
           <CloseMenu onClick={() => setIsOpen(false)}> X</CloseMenu>
         </MobileMenu>
       )}
@@ -126,7 +130,7 @@ const MobileMenu = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: absolute;
+  position: fixed;
   background-color: white;
   padding: 2rem;
   top: 0;
@@ -135,20 +139,24 @@ const MobileMenu = styled.div`
   left: 0;
   height: 100vh;
   width: 100vw;
-  overflow: hidden;
   background-color: white;
-  z-index: 1;
-  gap: 1rem;
+  z-index: 10;
+  gap: 2rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
   @media (max-width: 768px) {
     display: flex;
+  }
+
+  body {
+    overflow: hidden;
   }
 `;
 
 const MobileMenuLink = styled(Link)`
   text-decoration: none;
   color: #333;
+  font-size: 1.5rem;
 `;
 
 const CloseMenu = styled.div`

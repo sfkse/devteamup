@@ -23,11 +23,11 @@ function CardsSection() {
             that match your skills and passion.
           </CardDescription>
         </Card>
-        <Card fetured>
+        <Card featured={true}>
           <CardIconWrapper>
             <CardIcon src={icon2} alt="Icon" />
           </CardIconWrapper>
-          <CardTitle fetured>Manage Smartly</CardTitle>
+          <CardTitle featured={true}>Manage Smartly</CardTitle>
           <CardDescription>
             Utilize kanban boards, Gantt charts, and more for seamless project
             tracking and execution.
@@ -91,7 +91,7 @@ const Card = styled.div`
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   border: ${(props) =>
-    props.fetured ? "1px solid #57007b" : "2px solid transparent"};
+    props.featured ? "1px solid #57007b" : "2px solid transparent"};
 
   @media (max-width: 1024px) {
     width: 45%;
@@ -119,7 +119,7 @@ const CardTitle = styled.h3`
   font-weight: bold;
   //change color based on props . set linear gradient if featured
   color: ${(props) =>
-    props.fetured
+    props.featured
       ? css`
           font-size: 1.5rem;
           background: -webkit-linear-gradient(#f76680, #57007b);

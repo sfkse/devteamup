@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import hero from "../assets/hero.png";
+import { useNavigate } from "react-router-dom";
 function Hero() {
+  const navigate = useNavigate();
   return (
     <HeroWrapper>
       <HeroTextContainer>
@@ -9,7 +11,9 @@ function Hero() {
           Join a community of passionate coders and creators ready to team up on
           projects that inspire. Start collaborating today.
         </HeroSubtitle>
-        <HeroButton>Start Collaborating</HeroButton>
+        <HeroButton onClick={() => navigate("/waitlist")}>
+          Start Collaborating
+        </HeroButton>
       </HeroTextContainer>
       <HeroImage src={hero} alt="Hero Image" />
       <UIEllipse />

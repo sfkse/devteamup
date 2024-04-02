@@ -30,7 +30,7 @@ function PriceCards() {
         </CardDescription>
         <CardButton>Join waitlist</CardButton>
       </Card>
-      <Card featured>
+      <Card featured={true}>
         <CardTitle>Pro</CardTitle>
         <OldPriceWrapper>
           <OldPrice>$36.99</OldPrice>
