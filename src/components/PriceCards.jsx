@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import checkmark from "../assets/Checkmark.png";
 import greenCheckmark from "../assets/check_mark.png";
-function PriceCards() {
+import PropTypes from "prop-types";
+function PriceCards({ handleClickJoinWaitlist }) {
   return (
     <CardsWrapper>
       <Card>
@@ -28,7 +29,7 @@ function PriceCards() {
           Best for individuals and hobbyists exploring collaborative coding and
           seeking to join projects without the need for advanced features.
         </CardDescription>
-        <CardButton>Join waitlist</CardButton>
+        <CardButton onClick={handleClickJoinWaitlist}>Join waitlist</CardButton>
       </Card>
       <Card featured={true}>
         <CardTitle>Pro</CardTitle>
@@ -63,7 +64,7 @@ function PriceCards() {
           Best for professional developers and freelancers looking for enhanced
           collaboration tools and visibility for their contributions.
         </CardDescription>
-        <CardButton>Join waitlist</CardButton>
+        <CardButton onClick={handleClickJoinWaitlist}>Join waitlist</CardButton>
       </Card>
       <Card>
         <CardTitle>Team</CardTitle>
@@ -98,13 +99,17 @@ function PriceCards() {
           environment with shared resources and tools for efficient project
           management.
         </CardDescription>
-        <CardButton>Join waitlist</CardButton>
+        <CardButton onClick={handleClickJoinWaitlist}>Join waitlist</CardButton>
       </Card>
     </CardsWrapper>
   );
 }
 
 export default PriceCards;
+
+PriceCards.propTypes = {
+  handleClickJoinWaitlist: PropTypes.func.isRequired,
+};
 
 const CardsWrapper = styled.section`
   display: flex;

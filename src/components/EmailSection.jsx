@@ -1,8 +1,9 @@
+import { forwardRef } from "react";
 import styled from "styled-components";
 
-function EmailSection() {
+const EmailSection = forwardRef(function EmailSection(props, ref) {
   return (
-    <EmailWrapper>
+    <EmailWrapper ref={ref}>
       <EmailTitle>Join the waitlist now</EmailTitle>
       <EmailInput>
         <input type="email" placeholder="Enter your email" />
@@ -10,7 +11,7 @@ function EmailSection() {
       </EmailInput>
     </EmailWrapper>
   );
-}
+});
 
 export default EmailSection;
 
