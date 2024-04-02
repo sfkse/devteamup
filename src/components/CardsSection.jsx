@@ -9,8 +9,8 @@ function CardsSection() {
       <SectionDescription>
         Ready to transform your software development journey? Connect with
         like-minded developers, contribute to meaningful projects, and elevate
-        your coding skills to new heights. Or start one and gather your
-        team.Your next project adventure awaits.
+        your coding skills to new heights. Or start one and gather your team.
+        Your next project adventure awaits.
       </SectionDescription>
       <CardsWrapper>
         <Card>
