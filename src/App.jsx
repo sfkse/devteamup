@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import PricePage from "./pages/PricePage";
-import AppWrapper from "./components/AppWrapper.JSX";
+import AppWrapper from "./components/AppWrapper";
 
 function App() {
   return (
