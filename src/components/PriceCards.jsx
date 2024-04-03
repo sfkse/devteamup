@@ -71,7 +71,7 @@ function PriceCards({ handleClickJoinWaitlist }) {
         <OldPriceWrapper>
           <OldPrice>$179.99</OldPrice>
         </OldPriceWrapper>
-        <CardPrice>89.99</CardPrice>
+        <CardPrice>$89.99</CardPrice>
         <CardFeatures>
           <Feature>
             <img src={checkmark} alt="" /> All Pro plan features
